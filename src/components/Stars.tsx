@@ -1,17 +1,10 @@
-import { StarsType } from './StarsType'
+import { StarsInterface } from './StarsInterface'
 import Star from './Star'
 
-export function Stars({ count = 0 } : StarsType) {
+export function Stars({ count = 0 } : StarsInterface) {
   let id = 0;
 
-
-  const isValid = () => {
-    if (count <= 5 && count >= 1) {
-      return true
-    }
-
-    return false
-  }
+  const isValid = count <= 5 && count >= 1 ? true : false;
 
   const addStarsArray = () => {
     const stars = [];
@@ -23,7 +16,7 @@ export function Stars({ count = 0 } : StarsType) {
     return stars
   }
 
-  const renderStars = isValid() ? addStarsArray() : undefined;
+  const renderStars = isValid ? addStarsArray() : undefined;
 
   return (
     <ul className="card-body-stars u-clearfix">{ renderStars }</ul>
